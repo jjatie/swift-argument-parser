@@ -1,4 +1,4 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.5
 //===----------------------------------------------------------*- swift -*-===//
 //
 // This source file is part of the Swift Argument Parser open source project
@@ -14,6 +14,7 @@ import PackageDescription
 
 var package = Package(
     name: "swift-argument-parser",
+    platforms: [.macOS(.v12)],
     products: [
         .library(
             name: "ArgumentParser",
@@ -23,10 +24,7 @@ var package = Package(
     targets: [
         .target(
             name: "ArgumentParser",
-            dependencies: [],
-            swiftSettings: [
-                .unsafeFlags(["-Xfrontend", "-enable-experimental-concurrency"]),
-            ]),
+            dependencies: []),
         .target(
             name: "ArgumentParserTestHelpers",
             dependencies: ["ArgumentParser"]),
